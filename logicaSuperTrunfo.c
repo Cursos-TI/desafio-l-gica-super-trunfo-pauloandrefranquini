@@ -43,6 +43,7 @@ void imprimir(CARTA cidade) {
         cidade.densidade_populacional, cidade.PIB_per_capita, cidade.super_poder);
 }
 
+
 void carta_vencedora_densidade_populacional(CARTA cidade1, CARTA cidade2) {
     if (cidade1.densidade_populacional < cidade2.densidade_populacional) {
         printf("\nCidade %s venceu em DENSIDADE POPULACIONAL\n", cidade1.carta);
@@ -65,11 +66,12 @@ void carta_vencedora_todas_propriedades(CARTA cidade1, CARTA cidade2) {
 }
 
 
+
 void carta_vencedora_populacao(CARTA cidade1, CARTA cidade2) {
     if (cidade1.populacao > cidade2.populacao) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade1.carta);
+        printf("\nCidade %s venceu em POPULAÇÃO", cidade1.carta);
     } else if (cidade2.populacao > cidade1.populacao) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
+        printf("\nCidade %s venceu em POPULAÇÃO", cidade2.carta);
     } else {
         printf("\nOcorreu algum erro");
     }
@@ -78,9 +80,9 @@ void carta_vencedora_populacao(CARTA cidade1, CARTA cidade2) {
 
 void carta_vencedora_area(CARTA cidade1, CARTA cidade2) {
     if (cidade1.area > cidade2.area) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade1.carta);
+        printf("\nCidade %s venceu em ÁREA", cidade1.carta);
     } else if (cidade2.area > cidade1.area) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
+        printf("\nCidade %s venceu em ÁREA", cidade2.carta);
     } else {
         printf("\nOcorreu algum erro");
     }
@@ -89,19 +91,9 @@ void carta_vencedora_area(CARTA cidade1, CARTA cidade2) {
 
 void carta_vencedora_PIB(CARTA cidade1, CARTA cidade2) {
     if (cidade1.PIB > cidade2.PIB) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade1.carta);
+        printf("\nCidade %s venceu em PIB", cidade1.carta);
     } else if (cidade2.PIB > cidade1.PIB) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
-    } else {
-        printf("\nOcorreu algum erro");
-    }
-}
-
-void carta_vencedora_PIB(CARTA cidade1, CARTA cidade2) {
-    if (cidade1.PIB > cidade2.PIB) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade1.carta);
-    } else if (cidade2.PIB > cidade1.PIB) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
+        printf("\nCidade %s venceu em PIB", cidade2.carta);
     } else {
         printf("\nOcorreu algum erro");
     }
@@ -110,9 +102,9 @@ void carta_vencedora_PIB(CARTA cidade1, CARTA cidade2) {
 
 void carta_vencedora_pontos_turisticos(CARTA cidade1, CARTA cidade2) {
     if (cidade1.pontos_turisticos > cidade2.pontos_turisticos) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade1.carta);
+        printf("\nCidade %s venceu em PONTOS TURÍSTICOS", cidade1.carta);
     } else if (cidade2.pontos_turisticos > cidade1.pontos_turisticos) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
+        printf("\nCidade %s venceu em PONTOS TURÍSTICOS", cidade2.carta);
     } else {
         printf("\nOcorreu algum erro");
     }
@@ -121,24 +113,86 @@ void carta_vencedora_pontos_turisticos(CARTA cidade1, CARTA cidade2) {
 
 void carta_vencedora_PIB_per_capita(CARTA cidade1, CARTA cidade2) {
     if (cidade1.PIB_per_capita > cidade2.PIB_per_capita) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade1.carta);
+        printf("\nCidade %s venceu em PIB PER CAPITA", cidade1.carta);
     } else if (cidade2.PIB_per_capita > cidade1.PIB_per_capita) {
-        printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
+        printf("\nCidade %s venceu em PIB PER CAPITA", cidade2.carta);
     } else {
         printf("\nOcorreu algum erro");
     }
 }
 
+void propriedade_especifica(CARTA cidade1, CARTA cidade2, int opcao){
 
+
+    printf("\nVocê quer escolher a carta vencedora por meio da comparação da:"
+        "\n[1]População\n"
+        "[2]Área\n"
+        "[3]PIB\n"
+        "[4]Pontos turísticos\n");
+
+    scanf("%d",&opcao);
+
+    switch (opcao){
+        case 1:
+            carta_vencedora_populacao(cidade1,cidade2);
+            break;
+    
+        case 2:
+            carta_vencedora_area(cidade1,cidade2);
+            break;
+        
+        case 3:
+            carta_vencedora_PIB(cidade1,cidade2);
+            break;
+
+        case 4:
+            carta_vencedora_pontos_turisticos(cidade1,cidade2);
+            break;
+
+        case 5:
+            carta_vencedora_PIB_per_capita(cidade1,cidade2);
+            break;
+
+        default:
+            printf("Você fez uma escolha incorreta !!!");
+            break;
+    };
+}
+
+void qual_propriedade_comparar(CARTA cidade1, CARTA cidade2, int opcao1, int opcao2) {
+
+    printf("\nQual propriedade específica você quer fazer a comparação:"
+        "\n[1]Densidade populacional\n"
+        "[2]Somatória das outras propriedades\n"
+        "[3]Uma propriedade específica\n");
+
+    scanf("%d",&opcao1);
+
+    switch (opcao1){
+        case 1:
+            carta_vencedora_densidade_populacional(cidade1,cidade2);
+            break;
+    
+        case 2:
+            carta_vencedora_todas_propriedades(cidade1,cidade2);
+            break;
+
+        case 3:
+            propriedade_especifica(cidade1,cidade2,opcao2);
+            break;
+
+        default:
+            printf("Você fez uma escolha incorreta !!!");
+            break;
+            };
+}
 
 int main() {
-    
-    int opcao;
     
     printf("Bem vindo ao Super Trunfo Países!\n");
 
 
-    CARTA cidade[1];
+    CARTA cidade[2];
     
 
     cadastro(&cidade[0]);
@@ -148,15 +202,15 @@ int main() {
     imprimir(cidade[0]);
     imprimir(cidade[1]);
 
+    int opcao1;
+
+    int opcao2;
+
+
+    qual_propriedade_comparar(cidade[0], cidade[1], opcao1, opcao2);
+
 
     
-
-
-
-
-    carta_vencedora_densidade_populacional(cidade[0], cidade[1]);
     
-    carta_vencedora_outras_propriedadesA(cidade[0], cidade[1]);
-
     return 0;
 }
