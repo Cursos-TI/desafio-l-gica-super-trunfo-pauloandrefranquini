@@ -50,7 +50,7 @@ void carta_vencedora_densidade_populacional(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.densidade_populacional < cidade1.densidade_populacional) {
         printf("\nCidade %s venceu em DENSIDADE POPULACIONAL\n", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -61,7 +61,7 @@ void carta_vencedora_todas_propriedades(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.super_poder > cidade1.super_poder) {
         printf("\nCidade %s venceu em SUPER PODER", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -73,7 +73,7 @@ void carta_vencedora_populacao(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.populacao > cidade1.populacao) {
         printf("\nCidade %s venceu em POPULAÇÃO", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -84,7 +84,7 @@ void carta_vencedora_area(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.area > cidade1.area) {
         printf("\nCidade %s venceu em ÁREA", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -95,7 +95,7 @@ void carta_vencedora_PIB(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.PIB > cidade1.PIB) {
         printf("\nCidade %s venceu em PIB", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -106,7 +106,7 @@ void carta_vencedora_pontos_turisticos(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.pontos_turisticos > cidade1.pontos_turisticos) {
         printf("\nCidade %s venceu em PONTOS TURÍSTICOS", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -117,7 +117,7 @@ void carta_vencedora_PIB_per_capita(CARTA cidade1, CARTA cidade2) {
     } else if (cidade2.PIB_per_capita > cidade1.PIB_per_capita) {
         printf("\nCidade %s venceu em PIB PER CAPITA", cidade2.carta);
     } else {
-        printf("\nOcorreu algum erro");
+        printf("\nResultado da comparação foi empate !!!");
     }
 }
 
@@ -209,8 +209,5 @@ int main() {
 
     qual_propriedade_comparar(cidade[0], cidade[1], opcao1, opcao2);
 
-
-    
-    
     return 0;
 }
